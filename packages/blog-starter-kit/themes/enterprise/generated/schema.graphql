@@ -1960,6 +1960,11 @@ type MyUser implements IUser & Node {
     pageSize: Int!
   ): UserTagsConnection!
   """
+  Unverified email address of the user. Only available to the authenticated user.
+  This is set when the user has tried updating their email address but it is not verified yet.
+  """
+  unverifiedEmail: String
+  """
   The username of the user. It is unique and tied with user's profile URL. Example - https://hashnode.com/@username
   """
   username: String!
@@ -2522,6 +2527,8 @@ type Publication implements Node {
   allDrafts(
     """A cursor to the last item in the previous page."""
     after: String
+    """The filters to be applied to the draft list."""
+    filter: PublicationSearchableDraftConnectionFilter
     """The number of drafts to return."""
     first: Int!
   ): DraftConnection!
@@ -2529,6 +2536,8 @@ type Publication implements Node {
   allScheduledDrafts(
     """A cursor to the last item in the previous page."""
     after: String
+    """The filters to be applied to the scheduled draft list."""
+    filter: PublicationSearchableDraftConnectionFilter
     """The number of scheduled drafts to return."""
     first: Int!
   ): DraftConnection!
@@ -2959,6 +2968,17 @@ input PublicationPostsViaPageFilter {
   It is an "OR" filter and not an "AND" filter.
   """
   tags: [ID!]
+}
+
+"""
+ConnectionFilter to get list of drafts in publications.
+The filters are combined with an "AND" operation.
+"""
+input PublicationSearchableDraftConnectionFilter {
+  """An array of author Ids to filter the drafts."""
+  authorIds: [ID!]
+  """Search filter will be applied to the title of a draft"""
+  search: String
 }
 
 """

@@ -2129,6 +2129,11 @@ export type MyUser = IUser & Node & {
   tagsFollowing: Array<Tag>;
   /** Returns list of tags from user's expertise. Shown on the user's profile. */
   techStack: UserTagsConnection;
+  /**
+   * Unverified email address of the user. Only available to the authenticated user.
+   * This is set when the user has tried updating their email address but it is not verified yet.
+   */
+  unverifiedEmail?: Maybe<Scalars['String']['output']>;
   /** The username of the user. It is unique and tied with user's profile URL. Example - https://hashnode.com/@username */
   username: Scalars['String']['output'];
 };
@@ -2838,6 +2843,7 @@ export type Publication = Node & {
  */
 export type PublicationAllDraftsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PublicationSearchableDraftConnectionFilter>;
   first: Scalars['Int']['input'];
 };
 
@@ -2848,6 +2854,7 @@ export type PublicationAllDraftsArgs = {
  */
 export type PublicationAllScheduledDraftsArgs = {
   after?: InputMaybe<Scalars['String']['input']>;
+  filter?: InputMaybe<PublicationSearchableDraftConnectionFilter>;
   first: Scalars['Int']['input'];
 };
 
@@ -3225,6 +3232,17 @@ export type PublicationPostsViaPageFilter = {
    * It is an "OR" filter and not an "AND" filter.
    */
   tags?: InputMaybe<Array<Scalars['ID']['input']>>;
+};
+
+/**
+ * ConnectionFilter to get list of drafts in publications.
+ * The filters are combined with an "AND" operation.
+ */
+export type PublicationSearchableDraftConnectionFilter = {
+  /** An array of author Ids to filter the drafts. */
+  authorIds?: InputMaybe<Array<Scalars['ID']['input']>>;
+  /** Search filter will be applied to the title of a draft */
+  search?: InputMaybe<Scalars['String']['input']>;
 };
 
 /**
