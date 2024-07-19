@@ -1,5 +1,6 @@
 import { twJoin } from 'tailwind-merge';
 import { lightOrDark } from '../utils/commonUtils';
+import ThemeSwitch from './theme-switcher';
 import { useAppContext } from './contexts/appContext';
 import { Button } from './custom-button';
 import HeaderBlogSearch from './header-blog-search';
@@ -43,6 +44,7 @@ export const Header = (props: Props) => {
 						)}
 					>
 						<HeaderBlogSearch publication={publication} />
+            <ThemeSwitch/>
 						<Button as="a" href="#" type="primary" label="Sign up" />
 					</div>
 				</div>

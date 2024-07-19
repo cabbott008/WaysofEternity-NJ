@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import { withUrqlClient } from 'next-urql';
 import 'tailwindcss/tailwind.css'
-
+import { ThemeProvider } from 'next-themes'
 import '../styles/index.css';
 import { GlobalFontVariables } from '../components/fonts';
 import { getUrqlClientConfig } from '../lib/api/client';
@@ -12,7 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<Fragment>
 			 <GlobalFontVariables />
-			 <Component {...pageProps} />
+       <ThemeProvider attribute="class">
+         <Component {...pageProps} />
+       </ThemeProvider>
 		</Fragment>
 	);
 }

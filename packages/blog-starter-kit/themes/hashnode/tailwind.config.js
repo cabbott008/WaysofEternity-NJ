@@ -382,7 +382,8 @@ module.exports = {
 				80: '80vh',
 			},
 		},
-	},
+  },
+
 	plugins: [
 		require('@tailwindcss/typography'),
 		plugin(function ({ addUtilities }) {
