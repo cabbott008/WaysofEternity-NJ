@@ -1,5 +1,6 @@
 import { PostFragment } from '../generated/graphql';
 import { PostPreview } from './post-preview';
+import { Search } from './searchbar';
 
 type Props = {
 	posts: PostFragment[];

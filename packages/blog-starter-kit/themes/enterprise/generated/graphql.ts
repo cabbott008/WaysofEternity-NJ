@@ -3759,7 +3759,7 @@ export enum Scope {
   ChangeProSubscription = 'change_pro_subscription',
   CreatePro = 'create_pro',
   DeleteDraft = 'delete_draft',
-  DocsEditorOrOwner = 'docs_editor_or_owner',
+  DocsAdminOrOwner = 'docs_admin_or_owner',
   DocsOwner = 'docs_owner',
   ImportSubscribersToPublication = 'import_subscribers_to_publication',
   InvitedTeamUser = 'invited_team_user',

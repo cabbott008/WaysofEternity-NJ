@@ -2,15 +2,19 @@ import Link from 'next/link';
 import { Container } from './container';
 import { useAppContext } from './contexts/appContext';
 import { SocialLinks } from './social-links';
+import { Search } from './searchbar';
 
 export const Footer = () => {
 	const { publication } = useAppContext();
 	const PUBLICATION_LOGO = publication.preferences.logo;
 	return (
-		<footer className="border-t py-20 dark:border-neutral-800 ">
+		<footer className="border-t py-5 dark:border-neutral-800 ">
 			<Container className="px-5">
+        <div className="w-full pb-5">
+          <Search/>
+        </div>
 				{PUBLICATION_LOGO ? (
-					<div className="mb-20 flex w-full flex-row justify-center">
+					<div className="mb-10 flex w-full flex-row justify-center">
 						<Link
 							href={'/'}
 							aria-label={`${publication.title} home page`}

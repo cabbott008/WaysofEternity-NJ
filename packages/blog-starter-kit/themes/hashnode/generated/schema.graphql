@@ -3481,7 +3481,7 @@ enum Scope {
   change_pro_subscription
   create_pro
   delete_draft
-  docs_editor_or_owner
+  docs_admin_or_owner
   docs_owner
   import_subscribers_to_publication
   invited_team_user

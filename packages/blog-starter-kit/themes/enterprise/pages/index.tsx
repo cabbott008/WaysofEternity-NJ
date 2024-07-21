@@ -15,8 +15,9 @@ import { HeroPost } from '../components/hero-post';
 import { ArticleSVG, ChevronDownSVG } from '../components/icons';
 import { Layout } from '../components/layout';
 import { MorePosts } from '../components/more-posts';
-import { Navbar } from '../components/navbar';
+// import { Navbar } from '../components/navbar';
 import { SecondaryPost } from '../components/secondary-post';
+// import { Search } from '../components/searchbar.tsx';
 import {
 	MorePostsByPublicationDocument,
 	MorePostsByPublicationQuery,
@@ -67,7 +68,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 	};
 
 	const firstPost = allPosts[0];
-	const secondaryPosts = allPosts.slice(1, 4).map((post) => {
+	const secondaryPosts = allPosts.slice(0, 3).map((post) => {
 		return (
 			<SecondaryPost
 				key={post.id}
@@ -121,8 +122,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 					/>
 				</Head>
 				<Header />
-				<Container className="flex flex-col items-stretch gap-10 px-5 pb-10">
-					<Navbar />
+				<Container className="flex flex-col items-stretch gap-10 pt-10 px-5 pb-10">
 
 					{allPosts.length === 0 && (
 						<div className="grid grid-cols-1 py-20 lg:grid-cols-3">
@@ -137,8 +137,8 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 						</div>
 					)}
 
-					<div className="grid items-start gap-6 xl:grid-cols-2">
-						<div className="col-span-1">
+					<div className="grid items-start gap-6 xl:grid-cols-3">
+						<div className="col-span-2">
 							{firstPost && (
 								<HeroPost
 									title={firstPost.title}
@@ -156,7 +156,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 						<div className="bg-primary-50 grid grid-cols-4 rounded-lg px-5 py-5 dark:bg-neutral-900 md:py-10">
 							<div className="col-span-full md:col-span-2 md:col-start-2">
 								<h2 className="text-primary-600 dark:text-primary-500 mb-5 text-center text-lg font-semibold">
-									Subscribe to our newsletter for updates and changelog.
+									Subscribe to our newsletter for updates and new content.
 								</h2>
 								<SubscribeForm />
 							</div>

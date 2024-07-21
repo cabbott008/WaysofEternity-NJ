@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { DEFAULT_COVER } from '../utils/const';
 import { CoverImage } from './cover-image';
 import { DateFormatter } from './date-formatter';
+import { Search } from './searchbar';
+import { ReadTimeInMinutes } from './post-read-time-in-minutes';
 
 type Props = {
 	title: string;
@@ -16,7 +18,10 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 	const postURL = `/${slug}`;
 
 	return (
-		<section className="grid items-start gap-5 md:grid-cols-2">
+		<section className="grid items-start gap-5 md:grid-cols-1">
+      <div className="col-span-full">
+        <Search/>
+      </div>
 			<div className="col-span-1">
 				<CoverImage
 					title={title}
@@ -35,12 +40,12 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 				</h1>
 				<Link href={postURL}>
 					<p className="text-md leading-snug text-slate-500 dark:text-neutral-400">
-						{excerpt.length > 100 ? excerpt.substring(0, 100) + '…' : excerpt}
+						{excerpt.length > 150 ? excerpt.substring(0, 150) + '…' : excerpt}
 					</p>
 				</Link>
 				<div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
 					<Link href={postURL}>
-						<DateFormatter dateString={date} />
+						<p><DateFormatter dateString={date} /> (<ReadTimeInMinutes />)</p>
 					</Link>
 				</div>
 			</div>
