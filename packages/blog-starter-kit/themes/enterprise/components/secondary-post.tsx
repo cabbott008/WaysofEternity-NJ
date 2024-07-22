@@ -4,7 +4,6 @@ import { DEFAULT_COVER } from '../utils/const';
 import { CoverImage } from './cover-image';
 import { DateFormatter } from './date-formatter';
 import { Search } from './searchbar';
-import { ReadTimeInMinutes } from './post-read-time-in-minutes';
 
 type Props = {
 	title: string;
@@ -45,7 +44,7 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 				</Link>
 				<div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
 					<Link href={postURL}>
-						<p><DateFormatter dateString={date} /> (<ReadTimeInMinutes />)</p>
+						<DateFormatter dateString={date} />
 					</Link>
 				</div>
 			</div>
