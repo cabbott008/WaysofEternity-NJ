@@ -8,6 +8,7 @@ import HamburgerSVG from './icons/svgs/HamburgerSVG';
 import { PublicationLogo } from './publication-logo';
 import PublicationSidebar from './sidebar';
 import { SocialLinks } from './social-links';
+import ThemeSwitch from './theme-switcher';
 
 function hasUrl(
 	navbarItem: PublicationNavbarItem,
@@ -101,6 +102,7 @@ export const Header = () => {
 				<div className="col-span-2 flex flex-row items-center justify-end gap-5 text-slate-300 lg:col-span-3">
 					<nav className="hidden lg:block">{navList}</nav>
 			    <SocialLinks />
+          <ThemeSwitch />
 				</div>
 			</Container>
 			<div className="mt-5 flex justify-center lg:hidden">

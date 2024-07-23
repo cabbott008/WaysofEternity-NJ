@@ -3,6 +3,7 @@ import { Container } from './container';
 import { useAppContext } from './contexts/appContext';
 import { SocialLinks } from './social-links';
 import { Search } from './searchbar';
+import ThemeSwitch from './theme-switcher';
 
 export const Footer = () => {
 	const { publication } = useAppContext();
@@ -37,8 +38,8 @@ export const Footer = () => {
 				  )}
 					<div className="col-span-1 flex flex-col items-end gap-5 text-right text-slate-600 dark:text-neutral-300 md:text-left">
 						<SocialLinks />
-						<p>&copy;2024 Ways of Eternity</p>
-						<p><a href="#" className="hover:underline">Privacy Policy</a>{' '}·{' '}<a href="#" className="hover:underline">Terms</a></p>
+						<div>&copy;2024 Ways of Eternity</div>
+						<div><a href="#" className="hover:underline text-right">Privacy Policy</a>{' '}·{' '}<a href="#" className="hover:underline">Terms</a></div>
 					</div>
 				</div>
 			</Container>
