@@ -21,8 +21,8 @@ const ThemeSwitch = () => {
      <>
        <button
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-            <SunSVG className="h-[1.5rem] w-[1.3rem] dark:hidden" />
-            <MoonSVG className="hidden h-5 w-5 dark:block" />
+            <MoonSVG className="h-[1.5rem] w-[1.3rem] dark:hidden" />
+            <SunSVG className="hidden h-5 w-5 dark:block" />
             <span className="sr-only">Toggle theme</span>
         </button>
      </>
