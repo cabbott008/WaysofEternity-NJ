@@ -85,10 +85,11 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 		<AppProvider publication={publication}>
 			<Layout>
 				<Head>
-					<title>
+					<title className="text-blue-600">
 						{publication.displayTitle || publication.title || 'Hashnode Blog Starter Kit'}
 					</title>
 					<meta
+            className="text-blue-600"
 						name="description"
 						content={
 							publication.descriptionSEO || publication.title || `${publication.author.name}'s Blog`
