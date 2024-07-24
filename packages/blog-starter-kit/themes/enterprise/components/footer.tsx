@@ -37,7 +37,7 @@ export const Footer = () => {
 					</p>
 				  )}
 					<div className="col-span-1 flex flex-col items-end text-right text-slate-600 dark:text-neutral-300 md:text-left">
-						<div class="pb-4 pt-2"><SocialLinks /></div>
+						<div className="pb-4 pt-2"><SocialLinks /></div>
 						<div>&copy;2024 Ways of Eternity</div>
 						<div><a href="#" className="hover:underline text-right">Privacy Policy</a>{' '}·{' '}<a href="#" className="hover:underline">Terms</a></div>
 					</div>
