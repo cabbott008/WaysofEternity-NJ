@@ -22,7 +22,6 @@ export const Footer = () => {
 							<ul className="flex flex-col gap-1 text-slate-700 dark:text-neutral-300">
 								<li><a href="#" className="hover:underline">Contact us</a></li>
 								<li><a href="#" className="hover:underline">Newsletter</a></li>
-								<li><a href="#" className="hover:underline">Slack</a></li>
 							</ul>
 					</div>
 				{PUBLICATION_LOGO ? (
