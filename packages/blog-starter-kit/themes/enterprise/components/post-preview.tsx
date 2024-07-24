@@ -10,7 +10,7 @@ type Author = Pick<User, 'name' | 'profilePicture'>;
 type Props = {
 	title: string;
 	coverImage: string | null | undefined;
-	date: string;
+	// date: string;
 	excerpt: string;
 	author: Author;
 	slug: string;
