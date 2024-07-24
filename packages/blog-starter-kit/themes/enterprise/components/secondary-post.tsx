@@ -8,7 +8,7 @@ import { Search } from './searchbar';
 type Props = {
 	title: string;
 	coverImage: string;
-	date: string;
+	// date: string;
 	excerpt: string;
 	slug: string;
 };
