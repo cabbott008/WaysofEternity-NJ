@@ -16,7 +16,7 @@ type Props = {
 	slug: string;
 };
 
-export const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) => {
+export const PostPreview = ({ title, coverImage, excerpt, slug }: Props) => {
 	const postURL = `/${slug}`;
 
 	return (
