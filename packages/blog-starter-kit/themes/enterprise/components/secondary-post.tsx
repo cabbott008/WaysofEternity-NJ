@@ -2,7 +2,7 @@ import { resizeImage } from '@starter-kit/utils/image';
 import Link from 'next/link';
 import { DEFAULT_COVER } from '../utils/const';
 import { CoverImage } from './cover-image';
-import { DateFormatter } from './date-formatter';
+// import { DateFormatter } from './date-formatter';
 import { Search } from './searchbar';
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 	slug: string;
 };
 
-export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
+export const SecondaryPost = ({ title, coverImage, excerpt, slug }: Props) => {
 	const postURL = `/${slug}`;
 
 	return (
@@ -42,11 +42,6 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 						{excerpt.length > 150 ? excerpt.substring(0, 150) + '…' : excerpt}
 					</p>
 				</Link>
-				<div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
-					<Link href={postURL}>
-						<DateFormatter dateString={date} />
-					</Link>
-				</div>
 			</div>
 		</section>
 	);

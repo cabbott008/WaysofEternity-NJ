@@ -2,7 +2,7 @@ import { resizeImage } from '@starter-kit/utils/image';
 import Link from 'next/link';
 import { DEFAULT_COVER } from '../utils/const';
 import { CoverImage } from './cover-image';
-import { DateFormatter } from './date-formatter';
+// import { DateFormatter } from './date-formatter';
 
 type Props = {
 	title: string;
@@ -12,7 +12,7 @@ type Props = {
 	slug: string;
 };
 
-export const HeroPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
+export const HeroPost = ({ title, coverImage, excerpt, slug }: Props) => {
 	const postURL = `/${slug}`;
 
 	return (
@@ -37,11 +37,6 @@ export const HeroPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
 				<Link href={postURL}>
 					<p className="text-md leading-snug text-slate-500 dark:text-neutral-400">{excerpt}</p>
 				</Link>
-				<div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
-					<Link href={postURL}>
-						<DateFormatter dateString={date} />
-					</Link>
-				</div>
 			</div>
 		</section>
 	);
