@@ -21,7 +21,7 @@ export const MorePosts = ({ posts, context }: Props) => {
 						key={post.slug}
 						title={post.title}
 						coverImage={post.coverImage?.url}
-						date={post.publishedAt}
+						// date={post.publishedAt}
 						author={{
 							name: post.author.name,
 							profilePicture: post.author.profilePicture,

@@ -74,7 +74,6 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 				key={post.id}
 				title={post.title}
 				coverImage={post.coverImage?.url || DEFAULT_COVER}
-				date={post.publishedAt}
 				slug={post.slug}
 				excerpt={post.brief}
 			/>
@@ -139,15 +138,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 
 					<div className="grid items-start gap-6 xl:grid-cols-3">
 						<div className="col-span-2">
-							{firstPost && (
-								<HeroPost
-									title={firstPost.title}
-									coverImage={firstPost.coverImage?.url || DEFAULT_COVER}
-									date={firstPost.publishedAt}
-									slug={firstPost.slug}
-									excerpt={firstPost.brief}
-								/>
-							)}
+							<p>This will be replaced with a formatted layout.</p>
 						</div>
 						<div className="col-span-1 flex flex-col gap-6">{secondaryPosts}</div>
 					</div>
