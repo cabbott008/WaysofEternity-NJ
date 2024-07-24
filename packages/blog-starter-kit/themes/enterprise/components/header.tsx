@@ -95,7 +95,7 @@ export const Header = () => {
 							<PublicationSidebar navbarItems={navbarItems} toggleSidebar={toggleSidebar} />
 						)}
 					</div>
-					<div className="hidden text-blue-600 lg:block">
+					<div className="hidden lg:block">
 						<PublicationLogo />
 					</div>
 				</div>
@@ -105,7 +105,7 @@ export const Header = () => {
           <ThemeSwitch />
 				</div>
 			</Container>
-			<div className="mt-5 text-blue-600 flex justify-center lg:hidden">
+			<div className="mt-5 flex justify-center lg:hidden">
 				<PublicationLogo />
 			</div>
 		</header>
