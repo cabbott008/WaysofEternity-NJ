@@ -95,8 +95,8 @@ export const Header = () => {
 							<PublicationSidebar navbarItems={navbarItems} toggleSidebar={toggleSidebar} />
 						)}
 					</div>
-					<div className="hidden lg:block">
-						<PublicationLogo className="text-blue-600" />
+					<div className="hidden text-blue-600 lg:block">
+						<PublicationLogo />
 					</div>
 				</div>
 				<div className="col-span-2 flex flex-row items-center justify-end gap-5 text-slate-300 lg:col-span-3">
@@ -105,8 +105,8 @@ export const Header = () => {
           <ThemeSwitch />
 				</div>
 			</Container>
-			<div className="mt-5 flex justify-center lg:hidden">
-				<PublicationLogo className="text-blue-600" />
+			<div className="mt-5 text-blue-600 flex justify-center lg:hidden">
+				<PublicationLogo />
 			</div>
 		</header>
 	);
