@@ -42,11 +42,6 @@ export const PostPreview = ({ title, coverImage, excerpt, slug }: Props) => {
 						{excerpt.length > 140 ? excerpt.substring(0, 140) + '…' : excerpt}
 					</p>
 				</Link>
-				<div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">
-					<Link href={postURL}>
-						<DateFormatter dateString={date} />
-					</Link>
-				</div>
 			</div>
 		</div>
 	);
