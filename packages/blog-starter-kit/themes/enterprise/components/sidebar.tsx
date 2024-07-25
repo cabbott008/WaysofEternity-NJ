@@ -45,7 +45,7 @@ function PublicationSidebar(props: Props) {
 				>
 					<div className="blog-sidebar-header w-full shrink-0 py-6">
 						<div className="flex items-center justify-between pl-8 pr-4">
-							<div className="!text-xl">
+							<div className="!text-xl text-blue-600">
 								<PublicationLogo isSidebar />
 							</div>
 
@@ -54,7 +54,7 @@ function PublicationSidebar(props: Props) {
 									type="outline"
 									label=""
 									icon={<CloseSVG className="h-5 w-5 fill-current" />}
-									className="rounded-xl !border-transparent !px-3 !py-2 hover:bg-neutral-800 dark:text-white"
+									className="rounded-xl !border-transparent !px-3 !py-2 hover:bg-blue-600 dark:text-white"
 									onClick={() => {
 										toggleSidebar();
 									}}
@@ -81,7 +81,7 @@ function PublicationSidebar(props: Props) {
 									<li key={item.url}>
 										<Link
 											href={item.url}
-											className="transition-200 block truncate text-ellipsis whitespace-nowrap rounded p-2 px-3 transition-colors hover:bg-slate-100 hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
+											className="transition-200 block truncate text-ellipsis whitespace-nowrap rounded p-2 px-3 transition-colors hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white"
 										>
 											{item.label}
 										</Link>

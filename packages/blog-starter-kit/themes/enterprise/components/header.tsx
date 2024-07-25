@@ -36,7 +36,7 @@ export const Header = () => {
 						href={item.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="transition-200 block max-w-[200px] truncate text-ellipsis whitespace-nowrap rounded-full p-2 transition-colors hover:bg-blue-600 hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
+						className="transition-200 block max-w-[200px] truncate text-ellipsis whitespace-nowrap rounded-full p-2 transition-colors hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white"
 					>
 						{item.label}
 					</a>
@@ -87,7 +87,7 @@ export const Header = () => {
 							type="outline"
 							label=""
 							icon={<HamburgerSVG className="h-5 w-5 stroke-blue-600" />}
-							className="rounded-xl border-transparent !px-3 !py-2 text-white hover:bg-blue-600 dark:hover:bg-blue-600"
+							className="rounded-xl border-transparent !px-3 !py-2 text-blue-600 hover:bg-blue-600 dark:hover:bg-blue-600"
 							onClick={toggleSidebar}
 						/>
 
