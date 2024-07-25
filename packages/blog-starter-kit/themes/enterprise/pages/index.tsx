@@ -82,7 +82,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 	const morePosts = allPosts.slice(4);
 
 	return (
-		<AppProvider publication={publication} className="text-blue-600">
+		<AppProvider publication={publication}>
 			<Layout>
 				<Head>
 					<title className="text-blue-600">
