@@ -47,7 +47,7 @@ export const Header = () => {
 				<li>
 					<DropdownMenu.Root>
 						<DropdownMenu.Trigger asChild>
-							<button className="transition-200 block rounded-full p-2 transition-colors hover:bg-blue-600 hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white">
+							<button className="transition-200 block rounded-full p-2 transition-colors hover:bg-blue-600 hover:text-black dark:hover:bg-blue-600 dark:hover:text-white">
 								More
 							</button>
 						</DropdownMenu.Trigger>
@@ -86,8 +86,8 @@ export const Header = () => {
 						<Button
 							type="outline"
 							label=""
-							icon={<HamburgerSVG className="h-5 w-5 stroke-current" />}
-							className="rounded-xl border-transparent !px-3 !py-2 text-white hover:bg-slate-900 dark:hover:bg-neutral-800"
+							icon={<HamburgerSVG className="h-5 w-5 stroke-blue-600" />}
+							className="rounded-xl border-transparent !px-3 !py-2 text-white hover:bg-blue-600 dark:hover:bg-blue-600"
 							onClick={toggleSidebar}
 						/>
 
@@ -106,7 +106,7 @@ export const Header = () => {
 				</div>
 			</Container>
 			<div className="mt-5 flex text-blue-600 justify-center lg:hidden">
-				<PublicationLogo />
+				<PublicationLogo className="text-blue-600" />
 			</div>
 		</header>
 	);
