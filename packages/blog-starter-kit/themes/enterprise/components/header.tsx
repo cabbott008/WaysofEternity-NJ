@@ -106,7 +106,7 @@ export const Header = () => {
 				</div>
 			</Container>
 			<div className="mt-5 flex text-blue-600 justify-center lg:hidden">
-				<PublicationLogo className="text-blue-600" />
+				<PublicationLogo />
 			</div>
 		</header>
 	);
