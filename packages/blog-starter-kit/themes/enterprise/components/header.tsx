@@ -36,7 +36,7 @@ export const Header = () => {
 						href={item.url}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="transition-200 block max-w-[200px] truncate text-ellipsis whitespace-nowrap rounded-full p-2 transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
+						className="transition-200 block max-w-[200px] truncate text-ellipsis whitespace-nowrap rounded-full p-2 transition-colors hover:bg-blue-600 hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
 					>
 						{item.label}
 					</a>
@@ -47,7 +47,7 @@ export const Header = () => {
 				<li>
 					<DropdownMenu.Root>
 						<DropdownMenu.Trigger asChild>
-							<button className="transition-200 block rounded-full p-2 transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white">
+							<button className="transition-200 block rounded-full p-2 transition-colors hover:bg-blue-600 hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white">
 								More
 							</button>
 						</DropdownMenu.Trigger>
@@ -95,7 +95,7 @@ export const Header = () => {
 							<PublicationSidebar navbarItems={navbarItems} toggleSidebar={toggleSidebar} />
 						)}
 					</div>
-					<div className="hidden lg:block">
+					<div className="hidden text-blue-600 lg:block">
 						<PublicationLogo />
 					</div>
 				</div>
@@ -105,7 +105,7 @@ export const Header = () => {
           <ThemeSwitch />
 				</div>
 			</Container>
-			<div className="mt-5 flex justify-center lg:hidden">
+			<div className="mt-5 flex text-blue-600 justify-center lg:hidden">
 				<PublicationLogo />
 			</div>
 		</header>
