@@ -19,7 +19,7 @@ export const PublicationLogo = ({ isSidebar }: { isSidebar?: boolean }) => {
 			<Link
 				href={'/'}
 				aria-label={`${publication.title} blog home page`}
-				className="flex flex-row items-center justify-center gap-3"
+				className="flex flex-row text-blue-600 items-center justify-center gap-3"
 			>
 				{PUBLICATION_LOGO ? (
 					<>
@@ -28,12 +28,12 @@ export const PublicationLogo = ({ isSidebar }: { isSidebar?: boolean }) => {
 							alt={publication.title}
 							src={resizeImage(PUBLICATION_LOGO, { w: 320, h: 80 })}
 						/>
-						<span className="text-2xl font-semibold text-white md:text-3xl">Blog</span>
+						<span className="text-2xl font-semibold text-blue-600 md:text-3xl">Blog</span>
 					</>
 				) : (
 					<span
 						className={`block text-2xl font-semibold ${
-							isSidebar ? 'text-black dark:text-white' : 'text-white md:text-4xl'
+							isSidebar ? 'text-blue-600 dark:text-blue-600' : 'text-blue-600 md:text-4xl'
 						}`}
 					>
 						{publication.title}
