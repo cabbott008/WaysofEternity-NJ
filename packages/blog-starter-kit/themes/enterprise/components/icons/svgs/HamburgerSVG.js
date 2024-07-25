@@ -3,9 +3,9 @@ import React from 'react';
 export default class HamburgerSVG extends React.Component {
 	render() {
 		return (
-			<svg className={this.props.className} fill="none" viewBox="0 0 24 24">
+			<svg className={this.props.className} fill="blue-600" viewBox="0 0 24 24">
 				<path
-					stroke="currentColor"
+					stroke="stroke-blue-600"
 					strokeLinecap="round"
 					strokeLinejoin="round"
 					strokeWidth="1.5"
