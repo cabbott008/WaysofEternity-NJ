@@ -1031,6 +1031,118 @@ enum DeviceType {
   TABLET
 }
 
+interface DocsViews implements Node {
+  id: ID!
+  """The aggregated views."""
+  total: Int!
+}
+
+interface DocsVisitors implements Node {
+  id: ID!
+  """The aggregated number of visitors."""
+  total: Int!
+}
+
+type DocumentationGuide implements IGuide {
+  hasChanges: Boolean!
+  id: ID!
+  lastModified: DateTime!
+  name: String!
+  """
+  OG meta-data of the page. Contains image url used in open graph meta tags.
+  """
+  ogMetaData: OpenGraphMetaData
+  page(id: ID, path: String): DocumentationPage
+  publishedPage(id: ID, path: String): DocumentationPage
+  publishedSidebarItems: [DocumentationSidebarItem!]!
+  """
+  SEO information of the page. Contains title and description used in meta tags.
+  """
+  seo: SEO
+  sidebarItems: [DocumentationSidebarItem!]!
+  slug: String!
+  status: DocumentationGuideItemStatus!
+  """Url of the published guide."""
+  url: String
+  versionId: String
+}
+
+union DocumentationGuideItem = DocumentationGuide
+
+enum DocumentationGuideItemStatus {
+  DELETED
+  PUBLISHED
+  UNPUBLISHED
+}
+
+type DocumentationLink implements IDocumentationSidebarItem {
+  createdAt: DateTime!
+  id: ID!
+  label: String!
+  status: DocumentationSidebarItemStatus!
+  updatedAt: DateTime
+  url: String!
+  visibility: DocumentationSidebarItemVisibility!
+}
+
+type DocumentationPage {
+  createdAt: DateTime!
+  description: String
+  guideSlug: String!
+  id: ID!
+  """
+  OG meta-data of the page. Contains image url used in open graph meta tags.
+  """
+  ogMetaData: OpenGraphMetaData
+  path: String!
+  """
+  SEO information of the page. Contains title and description used in meta tags.
+  """
+  seo: SEO
+  status: DocumentationSidebarItemStatus!
+  title: String!
+  updatedAt: DateTime
+  """Url of the published page."""
+  url: String
+  visibility: DocumentationSidebarItemVisibility!
+}
+
+type DocumentationSection implements IDocumentationNestableSidebarItem & IDocumentationSidebarItem {
+  createdAt: DateTime!
+  id: ID!
+  label: String!
+  pages: [DocumentationSidebarItemPage!]!
+  status: DocumentationSidebarItemStatus!
+  updatedAt: DateTime
+  visibility: DocumentationSidebarItemVisibility!
+}
+
+union DocumentationSidebarItem = DocumentationLink | DocumentationSection | DocumentationSidebarItemPage
+
+type DocumentationSidebarItemPage implements IDocumentationNestableSidebarItem & IDocumentationSidebarItem {
+  createdAt: DateTime!
+  hasChanges: Boolean!
+  id: ID!
+  label: String!
+  pages: [DocumentationSidebarItemPage!]!
+  path: String!
+  status: DocumentationSidebarItemStatus!
+  updatedAt: DateTime
+  """Url of the published page."""
+  url: String
+  visibility: DocumentationSidebarItemVisibility!
+}
+
+enum DocumentationSidebarItemStatus {
+  PUBLISHED
+  UNPUBLISHED
+}
+
+enum DocumentationSidebarItemVisibility {
+  HIDDEN
+  PUBLIC
+}
+
 """Contains the publication's domain information."""
 type DomainInfo {
   """The domain of the publication."""
@@ -1423,6 +1535,188 @@ type GroupedByDeviceTypeVisitors implements Node & Visitors {
   total: Int!
 }
 
+"""Views implementation that will be returned if grouping by browser."""
+type GroupedByDocsBrowserViews implements DocsViews & Node {
+  """The browser that these views belong to."""
+  browser: String!
+  id: ID!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""Visitors implementation that will be returned if grouping by browser."""
+type GroupedByDocsBrowserVisitors implements DocsVisitors & Node {
+  """The browser that these views belong to."""
+  browser: String!
+  id: ID!
+  """The aggregated number of visitors."""
+  total: Int!
+}
+
+"""Views implementation that will be returned if grouping by country."""
+type GroupedByDocsCountryViews implements DocsViews & Node {
+  """The country that these views belong to."""
+  country: CountryCodeAlpha2!
+  id: ID!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""Visitors implementation that will be returned if grouping by country."""
+type GroupedByDocsCountryVisitors implements DocsVisitors & Node {
+  """The country that these views belong to."""
+  country: CountryCodeAlpha2!
+  id: ID!
+  """The aggregated number of visitors."""
+  total: Int!
+}
+
+"""Views implementation that will be returned if grouping by device type."""
+type GroupedByDocsDeviceTypeViews implements DocsViews & Node {
+  """The type of device that these views belong to."""
+  deviceType: DeviceType!
+  id: ID!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""
+Visitors implementation that will be returned if grouping by device type.
+"""
+type GroupedByDocsDeviceTypeVisitors implements DocsVisitors & Node {
+  """The type of device that these views belong to."""
+  deviceType: DeviceType!
+  id: ID!
+  """The aggregated number of visitors."""
+  total: Int!
+}
+
+"""Grouped views by documentation guide or API reference guide."""
+type GroupedByDocsGuideViews implements DocsViews & Node {
+  """
+  The documentation Guide or the API reference guide that these views belong to.
+  """
+  guide: DocumentationGuideItem
+  id: ID!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""Grouped visitors by documentation guide or API reference guide."""
+type GroupedByDocsGuideVisitors implements DocsVisitors & Node {
+  """
+  The documentation Guide or the API reference guide that these views belong to.
+  """
+  guide: DocumentationGuideItem
+  id: ID!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""
+Views implementation that will be returned if grouping by operating system.
+"""
+type GroupedByDocsOperatingSystemViews implements DocsViews & Node {
+  id: ID!
+  """The operating system that these views belong to."""
+  operatingSystem: String!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""
+Visitors implementation that will be returned if grouping by operating system.
+"""
+type GroupedByDocsOperatingSystemVisitors implements DocsVisitors & Node {
+  id: ID!
+  """The operating system that these views belong to."""
+  operatingSystem: String!
+  """The aggregated number of visitors."""
+  total: Int!
+}
+
+type GroupedByDocsPageViews implements DocsViews & Node {
+  id: ID!
+  """The page that these views belong to."""
+  page: DocumentationPage!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""
+Visitors implementation that will be returned if grouping by docs page.
+"""
+type GroupedByDocsPageVisitors implements DocsVisitors & Node {
+  id: ID!
+  """The page that these views belong to."""
+  page: DocumentationPage!
+  """The aggregated number of visitors."""
+  total: Int!
+}
+
+"""Views implementation that will be returned if grouping by path."""
+type GroupedByDocsPathViews implements DocsViews & Node {
+  id: ID!
+  """The path that these views belong to."""
+  path: String!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""Visitors implementation that will be returned if grouping by path."""
+type GroupedByDocsPathVisitors implements DocsVisitors & Node {
+  id: ID!
+  """The path that these views belong to."""
+  path: String!
+  """The aggregated number of visitors."""
+  total: Int!
+}
+
+"""
+Views implementation that will be returned if grouping by `REFERRER_HOST` dimension.
+"""
+type GroupedByDocsReferrerHostViews implements DocsViews & Node {
+  id: ID!
+  """The referrer host that these views belong to."""
+  referrerHost: String!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""
+Visitors implementation that will be returned if grouping by `REFERRER_HOST` dimension.
+"""
+type GroupedByDocsReferrerHostVisitors implements DocsVisitors & Node {
+  id: ID!
+  """The referrer host that these views belong to."""
+  referrerHost: String!
+  """The aggregated number of visitors."""
+  total: Int!
+}
+
+type GroupedByDocsTimeViews implements DocsViews & Node {
+  """The start of the time range that these views belong to."""
+  from: DateTime!
+  id: ID!
+  """The end of the time range that these views belong to."""
+  to: DateTime!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""
+Visitors implementation that will be returned if a grouping by time is provided.
+"""
+type GroupedByDocsTimeVisitors implements DocsVisitors & Node {
+  """The start of the time range that these visitors visited the page."""
+  from: DateTime!
+  id: ID!
+  """The end of the time range that these visitors visited the page."""
+  to: DateTime!
+  """The aggregated number of visitors."""
+  total: Int!
+}
+
 """
 Views implementation that will be returned if grouping by operating system.
 """
@@ -1554,6 +1848,26 @@ enum HttpRedirectionType {
   PERMANENT
   """A temporary redirect that corresponds to the 301 HTTP status code."""
   TEMPORARY
+}
+
+interface IDocumentationNestableSidebarItem {
+  pages: [DocumentationSidebarItemPage!]!
+}
+
+interface IDocumentationSidebarItem {
+  createdAt: DateTime!
+  id: ID!
+  label: String!
+  updatedAt: DateTime
+  visibility: DocumentationSidebarItemVisibility!
+}
+
+interface IGuide {
+  id: ID!
+  lastModified: DateTime!
+  name: String!
+  slug: String!
+  versionId: String
 }
 
 """
@@ -2514,6 +2828,16 @@ type Preferences {
 type ProTeamFeature implements Feature {
   """A flag indicating if the Pro team feature is enabled or not."""
   isEnabled: Boolean!
+}
+
+type ProjectViewEdge implements Edge {
+  cursor: String!
+  node: DocsViews!
+}
+
+type ProjectVisitorsEdge implements Edge {
+  cursor: String!
+  node: DocsVisitors!
 }
 
 """
@@ -3863,6 +4187,22 @@ type TriggerWebhookTestPayload {
 }
 
 scalar URL
+
+"""Views implementation that will be returned if no grouping is applied."""
+type UngroupedDocsViews implements DocsViews & Node {
+  id: ID!
+  """The aggregated views."""
+  total: Int!
+}
+
+"""
+Visitors implementation that will be returned if no grouping is applied.
+"""
+type UngroupedDocsVisitors implements DocsVisitors & Node {
+  id: ID!
+  """The aggregated number of visitors."""
+  total: Int!
+}
 
 """Views implementation that will be returned if no grouping is applied."""
 type UngroupedViews implements Node & Views {

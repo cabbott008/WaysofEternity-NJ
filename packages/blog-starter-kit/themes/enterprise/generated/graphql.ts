@@ -1029,6 +1029,127 @@ export enum DeviceType {
   Tablet = 'TABLET'
 }
 
+export type DocsViews = {
+  id: Scalars['ID']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+export type DocsVisitors = {
+  id: Scalars['ID']['output'];
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
+};
+
+export type DocumentationGuide = IGuide & {
+  __typename?: 'DocumentationGuide';
+  hasChanges: Scalars['Boolean']['output'];
+  id: Scalars['ID']['output'];
+  lastModified: Scalars['DateTime']['output'];
+  name: Scalars['String']['output'];
+  /** OG meta-data of the page. Contains image url used in open graph meta tags. */
+  ogMetaData?: Maybe<OpenGraphMetaData>;
+  page?: Maybe<DocumentationPage>;
+  publishedPage?: Maybe<DocumentationPage>;
+  publishedSidebarItems: Array<DocumentationSidebarItem>;
+  /** SEO information of the page. Contains title and description used in meta tags. */
+  seo?: Maybe<Seo>;
+  sidebarItems: Array<DocumentationSidebarItem>;
+  slug: Scalars['String']['output'];
+  status: DocumentationGuideItemStatus;
+  /** Url of the published guide. */
+  url?: Maybe<Scalars['String']['output']>;
+  versionId?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type DocumentationGuidePageArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  path?: InputMaybe<Scalars['String']['input']>;
+};
+
+
+export type DocumentationGuidePublishedPageArgs = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  path?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type DocumentationGuideItem = DocumentationGuide;
+
+export enum DocumentationGuideItemStatus {
+  Deleted = 'DELETED',
+  Published = 'PUBLISHED',
+  Unpublished = 'UNPUBLISHED'
+}
+
+export type DocumentationLink = IDocumentationSidebarItem & {
+  __typename?: 'DocumentationLink';
+  createdAt: Scalars['DateTime']['output'];
+  id: Scalars['ID']['output'];
+  label: Scalars['String']['output'];
+  status: DocumentationSidebarItemStatus;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  url: Scalars['String']['output'];
+  visibility: DocumentationSidebarItemVisibility;
+};
+
+export type DocumentationPage = {
+  __typename?: 'DocumentationPage';
+  createdAt: Scalars['DateTime']['output'];
+  description?: Maybe<Scalars['String']['output']>;
+  guideSlug: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  /** OG meta-data of the page. Contains image url used in open graph meta tags. */
+  ogMetaData?: Maybe<OpenGraphMetaData>;
+  path: Scalars['String']['output'];
+  /** SEO information of the page. Contains title and description used in meta tags. */
+  seo?: Maybe<Seo>;
+  status: DocumentationSidebarItemStatus;
+  title: Scalars['String']['output'];
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Url of the published page. */
+  url?: Maybe<Scalars['String']['output']>;
+  visibility: DocumentationSidebarItemVisibility;
+};
+
+export type DocumentationSection = IDocumentationNestableSidebarItem & IDocumentationSidebarItem & {
+  __typename?: 'DocumentationSection';
+  createdAt: Scalars['DateTime']['output'];
+  id: Scalars['ID']['output'];
+  label: Scalars['String']['output'];
+  pages: Array<DocumentationSidebarItemPage>;
+  status: DocumentationSidebarItemStatus;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  visibility: DocumentationSidebarItemVisibility;
+};
+
+export type DocumentationSidebarItem = DocumentationLink | DocumentationSection | DocumentationSidebarItemPage;
+
+export type DocumentationSidebarItemPage = IDocumentationNestableSidebarItem & IDocumentationSidebarItem & {
+  __typename?: 'DocumentationSidebarItemPage';
+  createdAt: Scalars['DateTime']['output'];
+  hasChanges: Scalars['Boolean']['output'];
+  id: Scalars['ID']['output'];
+  label: Scalars['String']['output'];
+  pages: Array<DocumentationSidebarItemPage>;
+  path: Scalars['String']['output'];
+  status: DocumentationSidebarItemStatus;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Url of the published page. */
+  url?: Maybe<Scalars['String']['output']>;
+  visibility: DocumentationSidebarItemVisibility;
+};
+
+export enum DocumentationSidebarItemStatus {
+  Published = 'PUBLISHED',
+  Unpublished = 'UNPUBLISHED'
+}
+
+export enum DocumentationSidebarItemVisibility {
+  Hidden = 'HIDDEN',
+  Public = 'PUBLIC'
+}
+
 /** Contains the publication's domain information. */
 export type DomainInfo = {
   __typename?: 'DomainInfo';
@@ -1419,6 +1540,188 @@ export type GroupedByDeviceTypeVisitors = Node & Visitors & {
   total: Scalars['Int']['output'];
 };
 
+/** Views implementation that will be returned if grouping by browser. */
+export type GroupedByDocsBrowserViews = DocsViews & Node & {
+  __typename?: 'GroupedByDocsBrowserViews';
+  /** The browser that these views belong to. */
+  browser: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Visitors implementation that will be returned if grouping by browser. */
+export type GroupedByDocsBrowserVisitors = DocsVisitors & Node & {
+  __typename?: 'GroupedByDocsBrowserVisitors';
+  /** The browser that these views belong to. */
+  browser: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
+};
+
+/** Views implementation that will be returned if grouping by country. */
+export type GroupedByDocsCountryViews = DocsViews & Node & {
+  __typename?: 'GroupedByDocsCountryViews';
+  /** The country that these views belong to. */
+  country: CountryCodeAlpha2;
+  id: Scalars['ID']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Visitors implementation that will be returned if grouping by country. */
+export type GroupedByDocsCountryVisitors = DocsVisitors & Node & {
+  __typename?: 'GroupedByDocsCountryVisitors';
+  /** The country that these views belong to. */
+  country: CountryCodeAlpha2;
+  id: Scalars['ID']['output'];
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
+};
+
+/** Views implementation that will be returned if grouping by device type. */
+export type GroupedByDocsDeviceTypeViews = DocsViews & Node & {
+  __typename?: 'GroupedByDocsDeviceTypeViews';
+  /** The type of device that these views belong to. */
+  deviceType: DeviceType;
+  id: Scalars['ID']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Visitors implementation that will be returned if grouping by device type. */
+export type GroupedByDocsDeviceTypeVisitors = DocsVisitors & Node & {
+  __typename?: 'GroupedByDocsDeviceTypeVisitors';
+  /** The type of device that these views belong to. */
+  deviceType: DeviceType;
+  id: Scalars['ID']['output'];
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
+};
+
+/** Grouped views by documentation guide or API reference guide. */
+export type GroupedByDocsGuideViews = DocsViews & Node & {
+  __typename?: 'GroupedByDocsGuideViews';
+  /** The documentation Guide or the API reference guide that these views belong to. */
+  guide?: Maybe<DocumentationGuideItem>;
+  id: Scalars['ID']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Grouped visitors by documentation guide or API reference guide. */
+export type GroupedByDocsGuideVisitors = DocsVisitors & Node & {
+  __typename?: 'GroupedByDocsGuideVisitors';
+  /** The documentation Guide or the API reference guide that these views belong to. */
+  guide?: Maybe<DocumentationGuideItem>;
+  id: Scalars['ID']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Views implementation that will be returned if grouping by operating system. */
+export type GroupedByDocsOperatingSystemViews = DocsViews & Node & {
+  __typename?: 'GroupedByDocsOperatingSystemViews';
+  id: Scalars['ID']['output'];
+  /** The operating system that these views belong to. */
+  operatingSystem: Scalars['String']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Visitors implementation that will be returned if grouping by operating system. */
+export type GroupedByDocsOperatingSystemVisitors = DocsVisitors & Node & {
+  __typename?: 'GroupedByDocsOperatingSystemVisitors';
+  id: Scalars['ID']['output'];
+  /** The operating system that these views belong to. */
+  operatingSystem: Scalars['String']['output'];
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
+};
+
+export type GroupedByDocsPageViews = DocsViews & Node & {
+  __typename?: 'GroupedByDocsPageViews';
+  id: Scalars['ID']['output'];
+  /** The page that these views belong to. */
+  page: DocumentationPage;
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Visitors implementation that will be returned if grouping by docs page. */
+export type GroupedByDocsPageVisitors = DocsVisitors & Node & {
+  __typename?: 'GroupedByDocsPageVisitors';
+  id: Scalars['ID']['output'];
+  /** The page that these views belong to. */
+  page: DocumentationPage;
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
+};
+
+/** Views implementation that will be returned if grouping by path. */
+export type GroupedByDocsPathViews = DocsViews & Node & {
+  __typename?: 'GroupedByDocsPathViews';
+  id: Scalars['ID']['output'];
+  /** The path that these views belong to. */
+  path: Scalars['String']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Visitors implementation that will be returned if grouping by path. */
+export type GroupedByDocsPathVisitors = DocsVisitors & Node & {
+  __typename?: 'GroupedByDocsPathVisitors';
+  id: Scalars['ID']['output'];
+  /** The path that these views belong to. */
+  path: Scalars['String']['output'];
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
+};
+
+/** Views implementation that will be returned if grouping by `REFERRER_HOST` dimension. */
+export type GroupedByDocsReferrerHostViews = DocsViews & Node & {
+  __typename?: 'GroupedByDocsReferrerHostViews';
+  id: Scalars['ID']['output'];
+  /** The referrer host that these views belong to. */
+  referrerHost: Scalars['String']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Visitors implementation that will be returned if grouping by `REFERRER_HOST` dimension. */
+export type GroupedByDocsReferrerHostVisitors = DocsVisitors & Node & {
+  __typename?: 'GroupedByDocsReferrerHostVisitors';
+  id: Scalars['ID']['output'];
+  /** The referrer host that these views belong to. */
+  referrerHost: Scalars['String']['output'];
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
+};
+
+export type GroupedByDocsTimeViews = DocsViews & Node & {
+  __typename?: 'GroupedByDocsTimeViews';
+  /** The start of the time range that these views belong to. */
+  from: Scalars['DateTime']['output'];
+  id: Scalars['ID']['output'];
+  /** The end of the time range that these views belong to. */
+  to: Scalars['DateTime']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Visitors implementation that will be returned if a grouping by time is provided. */
+export type GroupedByDocsTimeVisitors = DocsVisitors & Node & {
+  __typename?: 'GroupedByDocsTimeVisitors';
+  /** The start of the time range that these visitors visited the page. */
+  from: Scalars['DateTime']['output'];
+  id: Scalars['ID']['output'];
+  /** The end of the time range that these visitors visited the page. */
+  to: Scalars['DateTime']['output'];
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
+};
+
 /** Views implementation that will be returned if grouping by operating system. */
 export type GroupedByOperatingSystemViews = Node & Views & {
   __typename?: 'GroupedByOperatingSystemViews';
@@ -1554,6 +1857,26 @@ export enum HttpRedirectionType {
   /** A temporary redirect that corresponds to the 301 HTTP status code. */
   Temporary = 'TEMPORARY'
 }
+
+export type IDocumentationNestableSidebarItem = {
+  pages: Array<DocumentationSidebarItemPage>;
+};
+
+export type IDocumentationSidebarItem = {
+  createdAt: Scalars['DateTime']['output'];
+  id: Scalars['ID']['output'];
+  label: Scalars['String']['output'];
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  visibility: DocumentationSidebarItemVisibility;
+};
+
+export type IGuide = {
+  id: Scalars['ID']['output'];
+  lastModified: Scalars['DateTime']['output'];
+  name: Scalars['String']['output'];
+  slug: Scalars['String']['output'];
+  versionId?: Maybe<Scalars['String']['output']>;
+};
 
 /**
  * Contains basic information about the tag.
@@ -2718,6 +3041,18 @@ export type ProTeamFeature = Feature & {
   __typename?: 'ProTeamFeature';
   /** A flag indicating if the Pro team feature is enabled or not. */
   isEnabled: Scalars['Boolean']['output'];
+};
+
+export type ProjectViewEdge = Edge & {
+  __typename?: 'ProjectViewEdge';
+  cursor: Scalars['String']['output'];
+  node: DocsViews;
+};
+
+export type ProjectVisitorsEdge = Edge & {
+  __typename?: 'ProjectVisitorsEdge';
+  cursor: Scalars['String']['output'];
+  node: DocsVisitors;
 };
 
 /**
@@ -4132,6 +4467,22 @@ export type TriggerWebhookTestInput = {
 export type TriggerWebhookTestPayload = {
   __typename?: 'TriggerWebhookTestPayload';
   webhook?: Maybe<Webhook>;
+};
+
+/** Views implementation that will be returned if no grouping is applied. */
+export type UngroupedDocsViews = DocsViews & Node & {
+  __typename?: 'UngroupedDocsViews';
+  id: Scalars['ID']['output'];
+  /** The aggregated views. */
+  total: Scalars['Int']['output'];
+};
+
+/** Visitors implementation that will be returned if no grouping is applied. */
+export type UngroupedDocsVisitors = DocsVisitors & Node & {
+  __typename?: 'UngroupedDocsVisitors';
+  id: Scalars['ID']['output'];
+  /** The aggregated number of visitors. */
+  total: Scalars['Int']['output'];
 };
 
 /** Views implementation that will be returned if no grouping is applied. */
