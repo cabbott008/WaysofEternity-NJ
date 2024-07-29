@@ -145,7 +145,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
                 <div className="grid grid-cols-2 flex flex-col gap-5 xl:grid-cols-2 pt-5">
                   <div className="col-span-1 grid-cols-1 justify-items-center">
                     <h2 className="text-center">Who is Yah?</h2>
-                    <p className="text-center">1 Timothy 4:1 says, &quot;Now the Spirit speaketh expressly, that in the latter times some shall depart from the faith, giving heed to seducing spirits, and doctrines of devils.&quot; This pillar is all about who God actually is, how we relate to Him, and what He expects of us. Let's not mess this one up!</p>
+                    <p className="text-center">1 Timothy 4:1 says, &quot;Now the Spirit speaketh expressly, that in the latter times some shall depart from the faith, giving heed to seducing spirits, and doctrines of devils.&quot; This pillar is all about who God actually is, how we relate to Him, and what He expects of us. Let&apos;s not mess this one up!</p>
                   </div>
                   <div className="col-span-1 grid-cols-2 justify-items-center">
                     <h2 className="text-center">Family</h2>
@@ -162,7 +162,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
                 </div>
                 <div className="pt-5">
                     <h2 className="">Prayer Session Needed?</h2>
-                    <p>Obviously, we believe in restoration of Bible Culture. Which means we believe that divine healing, deliverance, supernatural provision, signs, and wonders are for today. If you need prayer, send a request ahead of time and we'll make sure that you get a call back to be prayed for live right over the phone.</p>
+                    <p>Obviously, we believe in restoration of Bible Culture. Which means we believe that divine healing, deliverance, supernatural provision, signs, and wonders are for today. If you need prayer, send a request ahead of time and we&apos;ll make sure that you get a call back to be prayed for live right over the phone.</p>
                 </div>
               </div>
 						</div>
