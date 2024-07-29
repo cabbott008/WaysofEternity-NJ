@@ -39,7 +39,7 @@ export const SecondaryPost = ({ title, coverImage, excerpt, slug }: Props) => {
 				</h1>
 				<Link href={postURL}>
 					<p className="text-md leading-snug text-slate-500 dark:text-neutral-400">
-						{excerpt.length > 150 ? excerpt.substring(0, 120) + '…' : excerpt}
+						{excerpt.length > 150 ? excerpt.substring(0, 220) + '…' : excerpt}
 					</p>
 				</Link>
 			</div>
