@@ -18,9 +18,6 @@ export const SecondaryPost = ({ title, coverImage, excerpt, slug }: Props) => {
 
 	return (
 		<section className="grid items-start gap-5 md:grid-cols-1">
-      <div className="col-span-full">
-        <Search/>
-      </div>
 			<div className="col-span-1">
 				<CoverImage
 					title={title}
@@ -39,7 +36,7 @@ export const SecondaryPost = ({ title, coverImage, excerpt, slug }: Props) => {
 				</h1>
 				<Link href={postURL}>
 					<p className="text-md leading-snug text-slate-500 dark:text-neutral-400">
-						{excerpt.length > 150 ? excerpt.substring(0, 220) + '…' : excerpt}
+						{excerpt.length > 100 ? excerpt.substring(0, 200) + '…' : excerpt}
 					</p>
 				</Link>
 			</div>

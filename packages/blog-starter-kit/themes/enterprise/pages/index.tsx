@@ -17,7 +17,7 @@ import { Layout } from '../components/layout';
 import { MorePosts } from '../components/more-posts';
 // import { Navbar } from '../components/navbar';
 import { SecondaryPost } from '../components/secondary-post';
-// import { Search } from '../components/searchbar.tsx';
+import { Search } from '../components/searchbar';
 import { HomeMessage } from '../components/home-message';
 import {
 	MorePostsByPublicationDocument,
@@ -69,7 +69,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 	};
 
 	const firstPost = allPosts[0];
-	const secondaryPosts = allPosts.slice(0, 2).map((post) => {
+	const secondaryPosts = allPosts.slice(0, 3).map((post) => {
 		return (
 			<SecondaryPost
 				key={post.id}
@@ -80,7 +80,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 			/>
 		);
 	});
-	const morePosts = allPosts.slice(2);
+	const morePosts = allPosts.slice(3);
 
 	return (
 		<AppProvider publication={publication}>
@@ -138,9 +138,14 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 						</div>
 					)}
 
-					<div className="grid items-start gap-6 xl:grid-cols-3">
+					<div className="grid items-start gap-6 lg:grid-cols-3">
             <HomeMessage />
-						<div className="col-span-1 flex flex-col gap-6">{secondaryPosts}</div>
+						<div className="col-span-2 flex flex-col gap-6 lg:col-span-1">
+              <div className="mb-2">
+                <Search />
+              </div>
+              {secondaryPosts}
+            </div>
 					</div>
 
 					{allPosts.length > 0 && (
