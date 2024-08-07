@@ -7,7 +7,7 @@ export const HomeMessage = () => {
 			<p className="pb-10 pl-20 pr-20 text-center text-xl">&quot;Ask for the ancient paths, where the good way is; and walk in it, and find rest for your souls.&quot; - Jeremiah 6:16</p>
       <div className="rounded-lg bg-russian-violet p-4">
         <h1 className="text-satin-gold text-4xl font-bold text-center">May the Lamb that was Slain Receive the Reward of His Suffering!</h1>
-        <p className="text-white p-4 font-semibold text-center">The Moravian Missionaries spoke these words as they sold themselves into slavery in 1732, showing by action their true priorities matched their words. May ours also!</p>
+        <p className="text-white p-4 font-semibold text-center">The Moravian Missionaries spoke these words as they sold themselves into slavery in 1732, showing by action their priorities truly matched their words. May ours also!</p>
         <div className=" bg-satin-gold rounded-lg pl-8 pr-8 pb-8 pt-5">
           <h2 className="text-blood-red text-4xl text-center font-extrabold pb-5">Four Pillars</h2>
           <div className="gap-8 grid grid-cols-1 lg:grid-cols-2">
